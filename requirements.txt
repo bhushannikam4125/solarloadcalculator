@@ -1,0 +1,10 @@
+streamlit
+pdfplumber
+pytesseract
+Pillow
+pandas
+openpyxl
+pdf2image
+regex
+google-generativeai
+

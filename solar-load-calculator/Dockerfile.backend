@@ -1,0 +1,12 @@
+FROM node:20-alpine
+WORKDIR /app
+COPY backend/package.json ./
+# Prefer production install; fallback to npm ci when lockfile exists
+# This repo currently has only package-lock.json in /backend.
+COPY backend/package*.json ./
+RUN npm ci || npm install
+COPY backend ./
+ENV NODE_ENV=production
+EXPOSE 8000
+CMD ["node","src/index.js"]
+

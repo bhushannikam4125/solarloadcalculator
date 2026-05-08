@@ -1,0 +1,39 @@
+# solar-load-calculator/docker-compose.yml
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: solar_load
+    ports:
+      - "5432:5432"
+    volumes:
+      - solar_load_pgdata:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ../backend
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    volumes:
+      - solar_load_uploads:/data/uploads
+
+  frontend:
+    build:
+      context: ./frontend
+    env_file:
+      - ./.env
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+
+volumes:
+  solar_load_pgdata:
+  solar_load_uploads:
+
