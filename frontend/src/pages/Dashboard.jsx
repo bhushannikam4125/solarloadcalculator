@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import api, { downloadUrl } from '../services/api.js'
+import api, { downloadExcel } from '../services/api.js'
 import { FiDownload, FiTrendingUp, FiUsers, FiBarChart2 } from 'react-icons/fi'
 
 import StatCard from '../components/common/StatCard.jsx'
@@ -83,7 +83,7 @@ export default function Dashboard() {
                     <td className="py-3">₹{b.extracted_data?.bill_amount ?? '-'}</td>
                     <td className="py-3">
                         <a
-                          href={downloadUrl(b.id)}
+                          href="#" onClick={(e) => { e.preventDefault(); downloadExcel(b.id) }}
                           className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-emerald-500 text-white hover:bg-emerald-600 transition"
                         >
                           <FiDownload /> Excel

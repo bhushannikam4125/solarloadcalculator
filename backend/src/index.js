@@ -19,8 +19,8 @@ app.use(
 app.use(express.json({ limit: '2mb' }))
 app.use(
   cors({
+    // Must match your Vercel frontend URL exactly, e.g. https://your-frontend.vercel.app
     origin: process.env.CORS_ORIGIN,
-
     credentials: false,
   }),
 )

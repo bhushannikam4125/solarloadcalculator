@@ -1,6 +1,10 @@
-- [ ] Implement authenticated Excel download (send Authorization header)
-- [ ] Update History.jsx download link to use authenticated download
-- [ ] Update BillDetails.jsx download button to use authenticated download
-- [ ] Add helper in frontend/src/services/api.js to download blob
-- [ ] Run frontend/build (or start) and verify Excel download no longer returns Missing Authorization token
+- [ ] Create/Update Vite production env: `frontend/.env.production` (set VITE_API_BASE_URL)
+- [ ] Fix authenticated Excel download (frontend/src/services/api.js)
+- [ ] Add export helper if missing; ensure History.jsx and BillDetails.jsx use authenticated download
+- [ ] Add `frontend/vercel.json` (if needed)
+- [ ] Generate Render backend deployment settings (env vars + start command)
+- [ ] Generate exact terminal commands for both deploys
+- [ ] Fix all CORS issues (backend: set CORS_ORIGIN properly)
+- [ ] Verify file uploads in production
+- [ ] Verify Excel download in production
 
