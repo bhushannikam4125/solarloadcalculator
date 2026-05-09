@@ -13,10 +13,11 @@ app.use(helmet())
 app.use(express.json({ limit: '2mb' }))
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+    origin: process.env.CORS_ORIGIN || '*',
     credentials: false,
   }),
 )
+
 
 const upload = multer({ storage: multer.memoryStorage() })
 
